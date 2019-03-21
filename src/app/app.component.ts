@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chat';
+  title = '';
+  username = [
+    'jnroji',
+    'perrete',
+    'torrezno'
+  ];
+
+  setTitle (event) {
+    this.title = event;
+  }
 }

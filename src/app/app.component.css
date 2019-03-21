@@ -1,0 +1,12 @@
+
+:host {
+    --avatar-width: 50px;
+}
+.big {
+    --avatar-width: 100px;
+}
+
+.little {
+    --avatar-width: 30px;
+}
+
