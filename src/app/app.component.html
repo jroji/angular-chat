@@ -1,4 +1,4 @@
-<app-avatar *ngFor="let user of username" (buttonClicked)="setTitle($event)" [name]="user.name" class="big"></app-avatar>
+<app-avatar *ngFor="let user of username" [name]="user.name" class="big"></app-avatar>
 
 <app-board [messages]="messages"></app-board>
 <app-text (messageSent)="addMessage($event)"></app-text>
