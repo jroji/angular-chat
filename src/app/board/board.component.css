@@ -1,0 +1,10 @@
+:host {
+    padding: 12px;
+}
+
+p {
+    padding: 12px;
+    background: lightgreen;
+    margin: 4px;
+    border-radius: 4px;
+}

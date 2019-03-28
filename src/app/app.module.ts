@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { TextComponent } from './text/text.component';
 import { BoardComponent } from './board/board.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BoardComponent } from './board/board.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

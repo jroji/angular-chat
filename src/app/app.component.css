@@ -1,12 +1,17 @@
 
 :host {
-    --avatar-width: 50px;
-}
-.big {
-    --avatar-width: 100px;
+    --avatar-width: 20px;
 }
 
-.little {
-    --avatar-width: 30px;
+.container {
+    display: flex;
+    height: calc(100vh - 48px);
 }
 
+.container_user {
+    border-right: 1px solid lightgray;
+}
+
+app-board {
+    flex: 1;
+}

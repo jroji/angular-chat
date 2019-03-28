@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-text',
@@ -7,14 +8,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TextComponent implements OnInit {
   @Output() messageSent = new EventEmitter<string>();
-  
-  constructor() { }
+  message;
+
+  constructor(private messages: MessagesService) { }
 
   ngOnInit() {
   }
 
-  sendMessage(message) {
-    this.messageSent.emit(this.message);
+  sendMessage() {
+    this.messages.addMessage(this.message);
+    // this.messageSent.emit(this.message);
     this.message = '';
   }
 

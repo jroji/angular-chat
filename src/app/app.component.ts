@@ -1,4 +1,6 @@
+import { MessagesService } from './messages.service';
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  username = [
-    { name:'jnroji'},
-    { name:'perrete'},
-    { name:'torrezno'}
-  ];
+  username: object[];
+  results;
+
+  constructor(
+    private messagesService: MessagesService
+    ) {
+    this.username = this.messagesService.getUsers();
+    this.messagesService.getHttpUsers().subscribe(results => {
+      console.log(results);
+      this.results = results;
+    })
+  }
 
   messages: string[] = [];
 

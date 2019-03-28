@@ -1,3 +1,4 @@
+import { MessagesService } from './../messages.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,11 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  @Input() messages: string[];
-
-  constructor() { }
+  // @Input() messages: string[];
+  messages = [];
+  constructor(private msgService: MessagesService) { }
 
   ngOnInit() {
+    this.msgService.messages$.subscribe(data => {
+      this.messages.push(data)
+    });
   }
 
 }
