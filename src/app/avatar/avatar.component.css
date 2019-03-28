@@ -15,6 +15,5 @@ img {
     border-radius: 100%;
     border: 1px solid lightgray;
     margin-right: 12px;
-    @apply --avatar-mixin;
 }
 

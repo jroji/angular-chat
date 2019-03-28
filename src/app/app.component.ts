@@ -6,14 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '';
   username = [
-    'jnroji',
-    'perrete',
-    'torrezno'
+    { name:'jnroji'},
+    { name:'perrete'},
+    { name:'torrezno'}
   ];
 
-  setTitle (event) {
-    this.title = event;
+  messages: string[] = [];
+
+  addMessage (message) {
+    this.messages.push(message);
   }
 }

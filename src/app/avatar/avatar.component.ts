@@ -7,7 +7,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AvatarComponent implements OnInit {
   @Input('name') username: string = 'jnroji';
-  @Output() buttonClicked = new EventEmitter<string>();
 
   constructor() {
     console.log(this.username);
@@ -17,8 +16,4 @@ export class AvatarComponent implements OnInit {
     console.log(this.username);
   }
 
-  handleClick(value) {
-    alert(value);
-    this.buttonClicked.emit(this.username);
-  }
 }
