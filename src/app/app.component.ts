@@ -10,14 +10,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  username: object[];
   users: Observable<object>;
   currentUser;
 
   results;
 
   constructor(private usersService: UsersService) {
-    this.username = this.usersService.getUsers();
     this.users = this.usersService.getHttpUsers();
   }
 
