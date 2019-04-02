@@ -4,10 +4,12 @@
 
 :host {
     display: flex;
+    border-top: 1px solid lightgray;
 }
 
 input {
     flex: 1;
+    font-size: 16px;
 }
 
 button {

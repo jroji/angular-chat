@@ -1,5 +1,7 @@
 :host {
     padding: 12px;
+    --avatar-width: 60px;
+    --avatar-font-size: 18px;
 }
 
 p {

@@ -1,6 +1,8 @@
-import { MessagesService } from './messages.service';
+import { UsersService } from './services/users.service';
+import { MessagesService } from './services/messages.service';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +11,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   username: object[];
+  users: Observable<object>;
+  currentUser;
+
   results;
 
-  constructor(
-    private messagesService: MessagesService
-    ) {
-    this.username = this.messagesService.getUsers();
-    this.messagesService.getHttpUsers().subscribe(results => {
-      console.log(results);
-      this.results = results;
-    })
+  constructor(private usersService: UsersService) {
+    this.username = this.usersService.getUsers();
+    this.users = this.usersService.getHttpUsers();
   }
 
   messages: string[] = [];
 
   addMessage (message) {
     this.messages.push(message);
+  }
+
+  addNew() {
+
+  }
+  selectUser (user) {
+    this.currentUser = user;
   }
 }

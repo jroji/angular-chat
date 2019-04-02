@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class AvatarComponent implements OnInit {
   @Input('name') username: string = 'jnroji';
+  @Input() image: string;
 
   constructor() {
     console.log(this.username);

@@ -1,6 +1,6 @@
 
 :host {
-    --avatar-width: 20px;
+    --avatar-width: 40px;
 }
 
 .container {
@@ -10,8 +10,12 @@
 
 .container_user {
     border-right: 1px solid lightgray;
+    background: whitesmoke;
 }
 
 app-board {
     flex: 1;
+}
+.active {
+    color: red;
 }

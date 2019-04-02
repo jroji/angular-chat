@@ -1,8 +1,23 @@
 <div class="container">
     <div class="container_user">
-        <app-avatar *ngFor="let user of username" [name]="user.name"></app-avatar>
+        <app-avatar
+            (click)="selectUser(user)"
+            *ngFor="let user of (users | async)?.results"
+            [name]="user.name.first"
+            [image]="user.picture.large"
+        ></app-avatar>
+        <app-avatar
+            name="New"
+            image="https://www.freeiconspng.com/uploads/add-icon--icon-search-engine-1.png"
+            (click)="addNew()"
+        ></app-avatar>
     </div>
-    <!--<app-board [messages]="messages"></app-board>-->
-    <app-board></app-board>
+
+    <button routerLinkActive="active" routerLink="/contacts">Contact</button>
+    <button routerLinkActive="active" routerLink="/chat">Chat</button>
+
+    <router-outlet></router-outlet>
+    <app-board [currentUser]="currentUser"></app-board>
 </div>
 <app-text (messageSent)="addMessage($event)"></app-text>
+
