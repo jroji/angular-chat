@@ -5,18 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsersService {
+  user;
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return [
-      { name: 'jnroji'},
-      { name: 'minko'},
-      { name: 'misco'}
-    ];
+  getHttpUsers() {
+    return this.http.get('https://randomuser.me/api?results=12&seed=torrezno');
   }
 
-  getHttpUsers() {
-    return this.http.get('https://randomuser.me/api?results=5&seed=torrezno');
+  selectUser(user) {
+    this.user = user;
   }
 }

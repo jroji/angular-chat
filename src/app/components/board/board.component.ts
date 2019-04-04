@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  @Input() currentUser;
   messages = [];
   constructor(private msgService: MessagesService) { }
 

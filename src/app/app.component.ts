@@ -7,28 +7,8 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  users: Observable<object>;
-  currentUser;
-
-  results;
-
-  constructor(private usersService: UsersService) {
-    this.users = this.usersService.getHttpUsers();
-  }
-
-  messages: string[] = [];
-
-  addMessage (message) {
-    this.messages.push(message);
-  }
-
-  addNew() {
-
-  }
-  selectUser (user) {
-    this.currentUser = user;
-  }
+  
 }

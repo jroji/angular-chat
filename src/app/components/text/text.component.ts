@@ -7,6 +7,9 @@ import { MessagesService } from '../../services/messages.service';
   styleUrls: ['./text.component.css']
 })
 export class TextComponent implements OnInit {
+  /**
+   * Send message when the button send is clicked
+   */
   @Output() messageSent = new EventEmitter<string>();
   message;
 

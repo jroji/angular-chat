@@ -3,19 +3,19 @@
     --avatar-width: 40px;
 }
 
-.container {
-    display: flex;
-    height: calc(100vh - 48px);
+header {
+    background: #80dccb;
 }
 
-.container_user {
-    border-right: 1px solid lightgray;
-    background: whitesmoke;
+button {
+    border: none;
+    background: none;
+    padding: 12px;
+    border-bottom: 4px solid transparent;
+    transition: .5s all;
+    cursor: pointer
 }
-
-app-board {
-    flex: 1;
-}
-.active {
-    color: red;
+button:hover {
+    font-weight: bold;
+    border-bottom: 4px solid white;
 }
