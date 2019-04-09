@@ -1,4 +1,5 @@
-import { MessagesService } from '../../services/messages.service';
+import { UsersService } from './../../services/users.service';
+import { Store } from '@ngrx/store';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,11 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   messages = [];
-  constructor(private msgService: MessagesService) { }
+  constructor(
+    private store: Store<any>,
+    private usersService: UsersService
+    ) { }
 
   ngOnInit() {
-    this.msgService.messages$.subscribe(data => {
-      this.messages.push(data);
+    this.store.select('messages').subscribe(data => {
+      this.messages = data[this.usersService.user.name.first];
     });
   }
 

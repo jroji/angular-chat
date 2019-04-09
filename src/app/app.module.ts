@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactsComponent } from './contacts/contacts.component';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { messagesReducer } from './state-management/messages.reducer';
 
 @NgModule({
   declarations: [
@@ -21,9 +25,13 @@ import { ChatComponent } from './chat/chat.component';
     BrowserModule,
     CommonsModule,
     HttpClientModule,
+    StoreModule.forRoot({
+      messages: messagesReducer
+    }),
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,26 +1,31 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MessagesService } from '../../services/messages.service';
+import { UsersService } from './../../services/users.service';
+import { messsagesActions } from './../../state-management/messages.actions';
+import { Store } from '@ngrx/store';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.css']
 })
-export class TextComponent implements OnInit {
+export class TextComponent {
   /**
    * Send message when the button send is clicked
    */
-  @Output() messageSent = new EventEmitter<string>();
   message;
-
-  constructor(private messages: MessagesService) { }
-
-  ngOnInit() {
-  }
+  @Input() user;
+  constructor(
+    private store: Store<any>,
+    private usersService: UsersService,
+  ) { }
 
   sendMessage() {
-    this.messages.addMessage(this.message);
-    // this.messageSent.emit(this.message);
+    this.store.dispatch({
+      type: messsagesActions.ADD_MESSAGE,
+      message: this.message,
+      user: this.usersService.user.name.first,
+    });
+
     this.message = '';
   }
 
