@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent {
   messages;
-  constructor() {
-  }
+
+  constructor() {}
 
 }

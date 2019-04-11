@@ -2,7 +2,7 @@
   <app-avatar
       role="button"
       (click)="selectUser(user)"
-      *ngFor="let user of (users | async)?.results"
+      *ngFor="let user of users"
       [name]="user.name.first"
       [image]="user.picture.large"
   ></app-avatar>

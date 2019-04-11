@@ -16,6 +16,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { messagesReducer } from './state-management/messages.reducer';
+import { selectedUserReducer } from './state-management/selectedUser.reducer';
+import { usersReducer } from './state-management/users.reducer';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { messagesReducer } from './state-management/messages.reducer';
     CommonsModule,
     HttpClientModule,
     StoreModule.forRoot({
-      messages: messagesReducer
+      messages: messagesReducer,
+      user: selectedUserReducer,
+      users: usersReducer,
     }),
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules

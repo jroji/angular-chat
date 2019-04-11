@@ -1,6 +1,8 @@
 import { UsersService } from './../../services/users.service';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, Input } from '@angular/core';
+import { Subscription, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-board',
@@ -9,16 +11,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   messages = [];
+  ngDestroy$ = new Subject();
+
   constructor(
     private store: Store<any>,
     private usersService: UsersService
     ) { }
 
   ngOnInit() {
-    this.store.select('messages').subscribe(data => {
-      this.messages = data[this.usersService.user.name.first];
-    });
+    this.store.select('messages')
+      .pipe(takeUntil(this.ngDestroy$))
+      .subscribe(data => {
+        this.messages = data[this.usersService.user.name.first];
+      });
   }
 
+  ngOnDestroy() {
+    this.ngDestroy$.next();
+  }
 
 }
