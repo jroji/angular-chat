@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { CommonsModule } from './../commons/commons.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ const routes: Routes = [
     ContactsComponent
   ],
   imports: [
+    MatCardModule,
     CommonsModule,
     CommonModule,
     RouterModule.forChild(routes)

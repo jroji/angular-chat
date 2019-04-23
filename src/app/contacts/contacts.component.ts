@@ -30,7 +30,13 @@ export class ContactsComponent implements OnDestroy {
     this.router.navigate(['chat']);
   }
 
+  getUrl(user){
+    return `url(${user.picture.thumbnail})`;
+  }
+
   ngOnDestroy() {
-    this.usersSubscription.unsubscribe();
+    if (this.usersSubscription) {
+      this.usersSubscription.unsubscribe();
+    }
   }
 }

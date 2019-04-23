@@ -1,4 +1,7 @@
-<input type="text" [(ngModel)]=message required>
 
-<button 
-  (click)="sendMessage()">Send!</button>
+<mat-form-field>
+  <input matInput placeholder="Message" [(ngModel)]=message>
+</mat-form-field>
+<button mat-fab (click)="sendMessage()">
+  <mat-icon aria-label="Example icon-button with a heart icon">chat</mat-icon>
+</button>

@@ -1,11 +1,11 @@
 <div class="container_user">
-  <app-avatar
-      role="button"
-      (click)="selectUser(user)"
-      *ngFor="let user of users"
-      [name]="user.name.first"
-      [image]="user.picture.large"
-  ></app-avatar>
+  <mat-card (click)="selectUser(user)" *ngFor="let user of users">
+    <mat-card-header>
+      <div mat-card-avatar [ngStyle]="{'background-image': getUrl(user) }"></div>
+      <mat-card-title>{{user.name.first}} {{ user.name.last }}</mat-card-title>
+      <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
   <app-avatar
       name="New"
       image="https://www.freeiconspng.com/uploads/add-icon--icon-search-engine-1.png"

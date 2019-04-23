@@ -18,15 +18,21 @@ import { StoreModule } from '@ngrx/store';
 import { messagesReducer } from './state-management/messages.reducer';
 import { selectedUserReducer } from './state-management/selectedUser.reducer';
 import { usersReducer } from './state-management/users.reducer';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     CommonsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     StoreModule.forRoot({
       messages: messagesReducer,
       user: selectedUserReducer,

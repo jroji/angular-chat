@@ -2,3 +2,10 @@ app-avatar {
     border-bottom: 1px solid #b3b3b3;
     cursor: pointer;
 }
+
+div[mat-card-avatar] {
+    background-size: contain;
+}
+mat-card {
+    margin-bottom: 6px;
+}
