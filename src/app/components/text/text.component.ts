@@ -1,3 +1,4 @@
+import { MessagesService } from './../../services/messages.service';
 import { UsersService } from './../../services/users.service';
 import { messsagesActions } from './../../state-management/messages.actions';
 import { Store } from '@ngrx/store';
@@ -17,15 +18,11 @@ export class TextComponent {
   constructor(
     private store: Store<any>,
     private usersService: UsersService,
+    private messageService: MessagesService
   ) { }
 
   sendMessage() {
-    this.store.dispatch({
-      type: messsagesActions.ADD_MESSAGE,
-      message: this.message,
-      user: this.usersService.user.name.first,
-    });
-
+    this.messageService.send(this.message);
     this.message = '';
   }
 

@@ -10,24 +10,11 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  messages = [];
-  ngDestroy$ = new Subject();
+  @Input() messages = [];
 
-  constructor(
-    private store: Store<any>,
-    private usersService: UsersService
-    ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.store.select('messages')
-      .pipe(takeUntil(this.ngDestroy$))
-      .subscribe(data => {
-        this.messages = data[this.usersService.user.name.first];
-      });
-  }
-
-  ngOnDestroy() {
-    this.ngDestroy$.next();
   }
 
 }

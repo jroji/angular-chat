@@ -1,3 +1,4 @@
+import { MessagesService } from './../services/messages.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,15 +11,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  results;
+  messages: Observable<Array<object>>;
 
-  constructor(private db: AngularFirestore) {}
-
-  messages: string[] = [];
-
-  addMessage (message) {
-    this.messages.push(message);
+  constructor(private msgService: MessagesService) {}
+å
+  ngOnInit() {
+    this.messages = this.msgService.getMessages();
   }
-
-  ngOnInit() {}
 }
