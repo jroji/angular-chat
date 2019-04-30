@@ -14,7 +14,7 @@ export class ChatComponent implements OnInit {
   messages: Observable<Array<object>>;
 
   constructor(private msgService: MessagesService) {}
-å
+
   ngOnInit() {
     this.messages = this.msgService.getMessages();
   }

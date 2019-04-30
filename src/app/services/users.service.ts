@@ -54,4 +54,10 @@ export class UsersService {
       user,
     });
   }
+
+  createUser() {
+    /*this.store.dispatch({
+      type: UsersActions.ADD
+    })*/
+  }
 }

@@ -6,9 +6,11 @@
       <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
     </mat-card-header>
   </mat-card>
+
   <app-avatar
       name="New"
       image="https://www.freeiconspng.com/uploads/add-icon--icon-search-engine-1.png"
-      (click)="addNew()"
+      routerLink="new-user"
   ></app-avatar>
+  
 </div>

@@ -21,10 +21,12 @@ import { usersReducer } from './state-management/users.reducer';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TestComponent,
   ],
   imports: [
     BrowserAnimationsModule,

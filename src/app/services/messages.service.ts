@@ -42,6 +42,5 @@ export class MessagesService {
         user: this.users.user.name.first,
       });
     }
-    
   }
 }

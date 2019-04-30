@@ -1,0 +1,26 @@
+<form [formGroup]="userForm">
+
+  <div class="container" formGroupName="name">
+    <mat-form-field>
+        <input matInput placeholder="Name" type="text" formControlName="first">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Surname" type="text" formControlName="last">
+    </mat-form-field>
+  </div>
+
+  <p class="error" *ngFor="let error of getErrors('name.first')">
+    {{ errorMessages[error] }}
+  </p>
+
+  <mat-form-field formGroupName="picture">
+      <input matInput placeholder="Image" type="text" formControlName="thumbnail">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput placeholder="Email" type="email" formControlName="email">
+  </mat-form-field>
+  <button (click)="submit()">Enviar</button>
+</form>
+
+
+  

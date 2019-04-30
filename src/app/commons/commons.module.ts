@@ -1,4 +1,5 @@
-import { FormsModule } from '@angular/forms';
+import { NewUserComponent } from '../contacts/new-user/new-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoardComponent } from './../components/board/board.component';
 import { TextComponent } from './../components/text/text.component';
 import { AvatarComponent } from './../components/avatar/avatar.component';
@@ -14,8 +15,10 @@ import {MatIconModule} from '@angular/material/icon';
     AvatarComponent,
     TextComponent,
     BoardComponent,
+    NewUserComponent
   ],
   imports: [
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,

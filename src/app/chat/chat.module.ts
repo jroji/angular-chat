@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { CommonsModule } from './../commons/commons.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ const routes: Routes = [
     ChatComponent
   ],
   imports: [
+    FormsModule,
     CommonsModule,
     CommonModule,
     RouterModule.forChild(routes)
