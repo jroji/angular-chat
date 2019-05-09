@@ -18,7 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { messagesReducer } from './state-management/messages.reducer';
 import { selectedUserReducer } from './state-management/selectedUser.reducer';
 import { usersReducer } from './state-management/users.reducer';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { TestComponent } from './test/test.component';

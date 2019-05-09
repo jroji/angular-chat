@@ -1,5 +1,5 @@
 <div class="container_user">
-  <mat-card (click)="selectUser(user)" *ngFor="let user of users">
+  <mat-card [@contactsAnimation]="user.gender" (@contactsAnimation.done)="popElement($event)" (click)="selectUser(user)" *ngFor="let user of usersToPaint">
     <mat-card-header>
       <div mat-card-avatar [ngStyle]="{'background-image': getUrl(user) }"></div>
       <mat-card-title>{{user.name.first}} {{ user.name.last }}</mat-card-title>
